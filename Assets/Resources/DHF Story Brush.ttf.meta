@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 20fdcfb551052734490bba6b734e3dc6
+timeCreated: 1490339500
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: DHF Story Brush
+  fontNames:
+  - DHF Story Brush
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
