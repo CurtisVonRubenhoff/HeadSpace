@@ -36,12 +36,23 @@ public class TextMaster: MonoBehaviour {
     instance.MainTextBox.text = "";
   }
 
-   public static void ClearText(TextMeshPro tmp) {
+  public static void ClearText(TextMeshPro tmp) {
+    instance.StopAllCoroutines();
+    tmp.text = "";
+  }
+
+  public static void ClearText(TextMeshProUGUI tmp) {
     instance.StopAllCoroutines();
     tmp.text = "";
   }
 
   public static void ShowText(Message message, TextMeshPro tmp) {
+    instance.StopAllCoroutines();
+    ClearText(tmp);
+    instance.StartCoroutine(instance.typeText(message.message, tmp));
+  }
+
+  public static void ShowText(Message message, TextMeshProUGUI tmp) {
     instance.StopAllCoroutines();
     ClearText(tmp);
     instance.StartCoroutine(instance.typeText(message.message, tmp));
@@ -75,7 +86,16 @@ public class TextMaster: MonoBehaviour {
     }
   }
 
-   private IEnumerator typeText(string s, TextMeshPro tmp)
+  private IEnumerator typeText(string s, TextMeshPro tmp)
+  {
+    foreach (char letter in s.ToCharArray())
+    {
+      tmp.text += letter;
+      yield return new WaitForSeconds(letterpause);
+    }
+  }
+
+  private IEnumerator typeText(string s, TextMeshProUGUI tmp)
   {
     foreach (char letter in s.ToCharArray())
     {

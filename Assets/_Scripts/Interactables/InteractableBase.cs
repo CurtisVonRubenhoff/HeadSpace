@@ -13,6 +13,8 @@ public class InteractableBase : MonoBehaviour {
   [SerializeField]
   protected bool canDo;
   [SerializeField]
+  protected bool isDone = false;
+  [SerializeField]
   protected string CharName;
   [SerializeField]
   protected bool dontHidePlayer;
@@ -21,13 +23,16 @@ public class InteractableBase : MonoBehaviour {
   protected SmoothFollow cameraSmooth;
   [SerializeField]
   protected Transform FocusPoint;
+  [SerializeField]
   protected InteractableState myState = InteractableState.STANDBY;
 
   protected virtual void OnTriggerEnter(Collider col) {
     if (col.gameObject.tag == "Player") {
-      canDo = true;
-      TextMaster.IndicatorOn(CharName);
-      playerObj = col.gameObject;
+      if (!isDone) {
+        canDo = true;
+        TextMaster.IndicatorOn(CharName);
+        playerObj = col.gameObject;
+      }
     }
   }
 
@@ -50,7 +55,7 @@ public class InteractableBase : MonoBehaviour {
 
   protected virtual void StopDoingThing() {
     myState = InteractableState.STANDBY;
-    TextMaster.IndicatorOn(CharName);
+    if (!isDone) TextMaster.IndicatorOn(CharName);
 
     if (FocusPoint) {
       cameraSmooth.target = cameraSmooth.gameObject.transform.parent;

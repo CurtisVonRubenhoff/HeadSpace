@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum BillyState {
+  PREINTRO,
   INTRO,
   BEG,
   WALKING,
   OTHERBEG,
+  RICH,
 }
 
 public class Billy : ChattyNpc {
@@ -15,7 +17,7 @@ public class Billy : ChattyNpc {
   public List<BilyMessageLists> serializedLists;
   protected Dictionary<BillyState, List<Message>> MessageLists = new Dictionary<BillyState, List<Message>>();
 
-  protected BillyState billState;
+  public BillyState billState;
   [SerializeField]
 
   protected void Awake() {
@@ -38,6 +40,9 @@ public class Billy : ChattyNpc {
     switch(billState) {
       default:
         break;
+      case BillyState.BEG:
+        Donate(true);
+        break;
     }
   }
 
@@ -45,6 +50,37 @@ public class Billy : ChattyNpc {
     switch(billState) {
       default:
         break;
+      case BillyState.BEG:
+        Donate(false);
+        break;
     }
   }
+
+  protected override void StartTalking() {
+    if (billState == BillyState.RICH) {
+      canDo = false;
+      TextMaster.ClearText(myTMP);
+      TextMaster.IndicatorOff();
+      StopTalking();
+    } else {
+      base.StartTalking();
+    }
+  }
+
+  private void Donate(bool didHe) {
+    RemoveChoiceListeners();
+    TextMaster.DisableChoices();
+    var message = (didHe) ? AcceptMessages[0] : DenyMessages[0];
+
+    ProcessMessage(message);
+
+    currentMessage = -1;
+    if (didHe) {
+      billState = BillyState.RICH;
+      isDone = true;
+    } else {
+      billState = BillyState.BEG;
+    }
+  }
+
 }

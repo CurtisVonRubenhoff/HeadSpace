@@ -24,6 +24,7 @@ public class TalkToMe : InteractableBase {
             StartTalking();
           }         
         } else if (myState == InteractableState.USING) {
+          if (!isDone) {
             if (IsLastMessage()) {
               canDo = true;
               if (myTMP == null) TextMaster.ClearText();
@@ -31,7 +32,7 @@ public class TalkToMe : InteractableBase {
             } else {
               ContinueSpeaking();
             }
-          
+          }
         }
       }
     }
@@ -51,6 +52,7 @@ public class TalkToMe : InteractableBase {
   }
 
   protected virtual void StopTalking() {
+    Debug.Log($"I'm doing something {gameObject.name}");
     StopDoingThing();
     TextMaster.DisableChoices();
     currentMessage = 0;
@@ -73,11 +75,6 @@ public class TalkToMe : InteractableBase {
 
     if (mess.isPrompt) {
       TextMaster.EnableChoices();
-    }
-
-    if (audioSource != null) {
-      audioSource.clip = mess.audio;
-      audioSource.Play();
     }
 
     if (audioSource != null) {
