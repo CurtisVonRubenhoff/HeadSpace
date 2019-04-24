@@ -33,7 +33,7 @@ public class MonsterMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
     if (GameManager.instance.currentState == GameManager.GameState.RUNNING) {
-      if (agent.remainingDistance < 0.5f)
+      if (agent.remainingDistance < 1.0f)
         GotoNextPoint();
 
       if (playerNearby)
