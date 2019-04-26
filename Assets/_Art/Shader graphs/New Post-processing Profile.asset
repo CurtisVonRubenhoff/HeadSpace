@@ -17,11 +17,10 @@ MonoBehaviour:
   - {fileID: 114773763934973136}
   - {fileID: 114157840967191680}
   - {fileID: 114998671114496080}
-  - {fileID: 114697174316860358}
   - {fileID: 114242917752640276}
-  - {fileID: 114016814753774574}
-  - {fileID: 114456058196062004}
   - {fileID: 114976254527351892}
+  - {fileID: 114612218409615176}
+  - {fileID: 114805130332440138}
 --- !u!114 &114016814753774574
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -95,7 +94,7 @@ MonoBehaviour:
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.25
+    value: 0.21
   smoothness:
     overrideState: 1
     value: 1
@@ -1423,7 +1422,7 @@ MonoBehaviour:
       - 0.5
       - 0.5
       - 0.5
---- !u!114 &114456058196062004
+--- !u!114 &114612218409615176
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1432,80 +1431,46 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94488653724e0384d94b7a5e7bc68a14, type: 3}
-  m_Name: Isoline
+  m_Script: {fileID: 11500000, guid: c1cb7e9e120078f43bce4f0b1be547a7, type: 3}
+  m_Name: AmbientOcclusion
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
-  baseAxis:
-    overrideState: 1
-    value: {x: 0, y: 1, z: 0}
-  lineInterval:
-    overrideState: 0
-    value: 1
-  lineOffset:
-    overrideState: 0
-    value: 0
-  lineScroll:
-    overrideState: 1
-    value: 0.5
-  lineColor:
-    overrideState: 1
-    value: {r: 0, g: 0.1899154, b: 3.6273842, a: 1}
-  lineWidth:
-    overrideState: 1
-    value: 21.4
-  sourceContribution:
+  mode:
     overrideState: 1
     value: 1
-  backgroundColor:
-    overrideState: 1
-    value: {r: 1, g: 1, b: 1, a: 0}
-  modulationStrength:
-    overrideState: 0
-    value: 0
-  modulationFrequency:
-    overrideState: 0
-    value: 0.1
-  modulationWidth:
-    overrideState: 0
-    value: 0.1
-  modulationOffset:
-    overrideState: 0
-    value: 0
-  modulationScroll:
-    overrideState: 0
-    value: 1
---- !u!114 &114697174316860358
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d65e486e4de6e5448a8fbb43dc8756a0, type: 3}
-  m_Name: Grain
-  m_EditorClassIdentifier: 
-  active: 0
-  enabled:
-    overrideState: 1
-    value: 1
-  colored:
-    overrideState: 1
-    value: 0
   intensity:
     overrideState: 1
-    value: 0.226
-  size:
-    overrideState: 1
-    value: 1.343
-  lumContrib:
+    value: 4
+  color:
     overrideState: 0
-    value: 0.8
+    value: {r: 0.038709044, g: 1, b: 0, a: 1}
+  ambientOnly:
+    overrideState: 0
+    value: 1
+  noiseFilterTolerance:
+    overrideState: 0
+    value: 0
+  blurTolerance:
+    overrideState: 0
+    value: -4.6
+  upsampleTolerance:
+    overrideState: 0
+    value: -12
+  thicknessModifier:
+    overrideState: 0
+    value: 1
+  directLightingStrength:
+    overrideState: 1
+    value: 0.42
+  radius:
+    overrideState: 0
+    value: 0.25
+  quality:
+    overrideState: 0
+    value: 2
 --- !u!114 &114773763934973136
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1553,6 +1518,40 @@ MonoBehaviour:
   dirtIntensity:
     overrideState: 1
     value: 0.18
+--- !u!114 &114805130332440138
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b77c5407dc277943b591ade9e6b18c5, type: 3}
+  m_Name: LensDistortion
+  m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 1
+  intensity:
+    overrideState: 1
+    value: -82.1
+  intensityX:
+    overrideState: 1
+    value: 1
+  intensityY:
+    overrideState: 1
+    value: 0
+  centerX:
+    overrideState: 1
+    value: 0
+  centerY:
+    overrideState: 1
+    value: 0
+  scale:
+    overrideState: 1
+    value: 1
 --- !u!114 &114879509507517128
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1632,7 +1631,7 @@ MonoBehaviour:
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
   fillOpacity:
-    overrideState: 0
+    overrideState: 1
     value: 0
 --- !u!114 &114998671114496080
 MonoBehaviour:

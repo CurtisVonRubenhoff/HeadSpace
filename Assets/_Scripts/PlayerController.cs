@@ -12,10 +12,12 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     List<AudioSource> FootstepSounds = new List<AudioSource>();
 
+
     public int turnSpeed;
     [SerializeField]
     private bool PS_canMove = true;
     private bool PS_CanUse = false;
+    private bool PS_OnBridge = false;
 
     // Update is called once per frame
     void Update() {
@@ -29,7 +31,8 @@ public class PlayerController : MonoBehaviour {
       }
       
       if (PS_canMove) {
-        var shift = Input.GetKey(KeyCode.LeftShift);
+        var shift = (PS_OnBridge) ? false : Input.GetButton("Run");
+
         if (Mathf.Abs(inputx) > 0) {
           transform.Rotate(Vector3.up * Time.deltaTime * inputx * turnSpeed);
         }
@@ -44,4 +47,17 @@ public class PlayerController : MonoBehaviour {
     public void Step() {
       FootstepSounds[Random.Range(0, FootstepSounds.Count-1)].Play();
     }
+
+    private void OnTriggerStay(Collider col) {
+      if (col.gameObject.tag == "Stairs") {
+        PS_OnBridge = true;
+      }
+    }
+
+    private void OnTriggerExit(Collider col) {
+      if (col.gameObject.tag == "Stairs") {
+        PS_OnBridge = false;
+      }
+    }
+    
 }

@@ -17,7 +17,7 @@ public class TalkToMe : InteractableBase {
 	// Update is called once per frame
 	protected virtual void Update () {
     if (GameManager.instance.currentState == GameManager.GameState.RUNNING) {
-      if (Input.GetKeyDown(KeyCode.E)) {
+      if (Input.GetButtonDown("Interact")) {
         if (canDo) {
           if (myState == InteractableState.STANDBY) {
             canDo = false;
