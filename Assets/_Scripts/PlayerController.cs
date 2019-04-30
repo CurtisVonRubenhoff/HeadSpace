@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     List<AudioSource> FootstepSounds = new List<AudioSource>();
 
+    [SerializeField]
+    MusicController maestro;
+
 
     public int turnSpeed;
     [SerializeField]
@@ -42,6 +45,10 @@ public class PlayerController : MonoBehaviour {
         if (inputy == 0) {
           PlayerAnim.SetInteger("State", 0);
         }
+
+        maestro.UpdateWalkingMusic(inputy, (!PS_OnBridge && Input.GetButton("Run")));
+      } else {
+        maestro.UpdateWalkingMusic(0.0f, false);
       }
     }
     public void Step() {
@@ -58,6 +65,10 @@ public class PlayerController : MonoBehaviour {
       if (col.gameObject.tag == "Stairs") {
         PS_OnBridge = false;
       }
+    }
+
+    private void OnDisable() {
+      maestro.UpdateWalkingMusic(0.0f, false);
     }
     
 }

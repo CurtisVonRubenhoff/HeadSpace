@@ -22,6 +22,13 @@ public class MainMenu : MonoBehaviour {
   GameObject Warning;
   [SerializeField]
   GameObject OptionsMenu;
+
+  [SerializeField]
+  Button StartGameButton;
+  [SerializeField]
+  Toggle DisclaimerButton;
+  [SerializeField]
+  Button QuitButton;
 	
 	// Update is called once per frame
 	void Update () {
@@ -36,6 +43,10 @@ public class MainMenu : MonoBehaviour {
   }
 
   public void StartGame() {
+    StartGameButton.interactable = false;
+    DisclaimerButton.interactable = false;
+    QuitButton.interactable = false;
+    StartSound.time = 1.5f;
     StartSound.Play();
     HumNoise.Stop();
     StartCoroutine(Fade(1f));

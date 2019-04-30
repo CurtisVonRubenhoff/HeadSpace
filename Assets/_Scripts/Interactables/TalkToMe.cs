@@ -14,6 +14,9 @@ public class TalkToMe : InteractableBase {
   [SerializeField]
   protected TextMeshPro myTMP;
 
+  [SerializeField]
+  protected MusicController maestro;
+
 	// Update is called once per frame
 	protected virtual void Update () {
     if (GameManager.instance.currentState == GameManager.GameState.RUNNING) {
@@ -22,12 +25,14 @@ public class TalkToMe : InteractableBase {
           if (myState == InteractableState.STANDBY) {
             canDo = false;
             StartTalking();
+            if (maestro != null) maestro.PlayMySong(CharName);
           }         
         } else if (myState == InteractableState.USING) {
           if (!isDone) {
             if (IsLastMessage()) {
               canDo = true;
               if (myTMP == null) TextMaster.ClearText();
+              if (maestro != null) maestro.StopCharacterSongs();
               StopTalking();
             } else {
               ContinueSpeaking();

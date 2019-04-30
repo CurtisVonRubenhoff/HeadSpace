@@ -42,7 +42,7 @@ public class GameManager: MonoBehaviour {
 
     DayText.gameObject.SetActive(true);
     DayText.text = $"Day {currentDay}";
-    yield return new WaitForSeconds(1.0f);
+    yield return new WaitForSeconds(1.5f);
     DayText.gameObject.SetActive(false);
 
     while (start > 0.1f) {
@@ -69,11 +69,11 @@ public class GameManager: MonoBehaviour {
       yield return null;
     }
 
-    SceneManager.LoadSceneAsync(1);
+    SceneManager.LoadSceneAsync(0);
   }
 
   private void Update() {
-    if (Input.GetKeyDown(KeyCode.Escape)) {
+    if (Input.GetButtonDown("Menu")) {
       currentState = (currentState == GameState.RUNNING) ? GameState.PAUSED : GameState.RUNNING;
     }
   }
