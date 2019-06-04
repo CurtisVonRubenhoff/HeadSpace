@@ -38,7 +38,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_F82488D1:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 6dce2aae00e257d4e8070fa1c5bccb7b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
@@ -169,11 +169,12 @@ Material:
     - PixelSnap: 0
     - Vector1_30800136: 0.02
     - Vector1_4D78641F: 0.005
-    - Vector1_8DEDE97C: 1
+    - Vector1_8DEDE97C: -33.03
+    - Vector1_A6776B94: 1
     - Vector1_CF70E097: 0
-    - Vector1_D6DCCF92: 0.003
+    - Vector1_D6DCCF92: -0.01
     - Vector1_E69176E9: 3.3
-    - Vector1_E9321333: 2
+    - Vector1_E9321333: 12.39
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
@@ -303,7 +304,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - Color_2BB4A585: {r: 1, g: 0.5613208, b: 0.6814635, a: 0}
-    - Color_5C1A721F: {r: 1, g: 0, b: 0.62745094, a: 0}
+    - Color_5C1A721F: {r: 1, g: 0.6650944, b: 0.94243807, a: 0}
     - Vector2_2B74BDDF: {r: 1, g: 1, b: 0, a: 0}
     - Vector2_B83D7D83: {r: 2, g: 2, b: 2, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}

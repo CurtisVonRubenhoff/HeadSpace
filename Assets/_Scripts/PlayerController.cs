@@ -8,8 +8,6 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     Animator PlayerAnim;
     [SerializeField]
-    Rigidbody PlayerRigid;
-    [SerializeField]
     List<AudioSource> FootstepSounds = new List<AudioSource>();
 
     [SerializeField]
@@ -28,6 +26,9 @@ public class PlayerController : MonoBehaviour {
       var inputy = Input.GetAxis("Vertical");
       var mouseX = Input.GetAxis("Mouse X");
       var mousey = Input.GetAxis("Mouse Y");
+
+      Debug.Log(inputx);
+      Debug.Log(inputy);
 
       if (GameManager.instance.currentState == GameManager.GameState.PAUSED) {
         inputx = inputy = mouseX = mousey = 0f;

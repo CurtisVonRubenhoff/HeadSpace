@@ -9,8 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Buildings_DS_Atlas
   m_Shader: {fileID: 4800000, guid: 875515eaa5780f840ac13f9238d6dd94, type: 3}
-  m_ShaderKeywords: _NORMALMAP
-  m_LightmapFlags: 4
+  m_ShaderKeywords: _NORMALMAP _NORMALMAP_TANGENT_SPACE
+  m_LightmapFlags: 1
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -33,12 +33,20 @@ Material:
         m_Texture: {fileID: 2800000, guid: 28aa7fb50ee4a734daf2b98cf2b5221a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - Texture2D_9B165578:
+        m_Texture: {fileID: 2800000, guid: 28aa7fb50ee4a734daf2b98cf2b5221a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - Texture2D_A30B9437:
         m_Texture: {fileID: 2800000, guid: 0ef16e277952f864a9052abe3e80ae29, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_F82488D1:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 28aa7fb50ee4a734daf2b98cf2b5221a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_F9A3FC6C:
+        m_Texture: {fileID: 2800000, guid: cde1e055cd8c5c742b060b91facbb1c6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
@@ -62,6 +70,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _CoatMaskMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DecalTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -165,10 +177,11 @@ Material:
     - Vector1_30800136: 0.01
     - Vector1_4D78641F: 0.02
     - Vector1_8DEDE97C: 0
+    - Vector1_A6776B94: 0.49
     - Vector1_CF70E097: 0.001
     - Vector1_D6DCCF92: 0.01
     - Vector1_E69176E9: 4.66
-    - Vector1_E9321333: 4
+    - Vector1_E9321333: 1.99
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
@@ -178,6 +191,7 @@ Material:
     - _AlphaCutoffEnable: 0
     - _AlphaCutoffPostpass: 0.5
     - _AlphaCutoffPrepass: 0.5
+    - _AlphaCutoffShadow: 0.5
     - _Anisotropy: 0
     - _Blend: 0
     - _BlendMode: 0
@@ -254,6 +268,7 @@ Material:
     - _PPDPrimitiveWidth: 1
     - _Parallax: 0.02
     - _PreRefractionPass: 0
+    - _ReceivesSSR: 1
     - _RefractionModel: 0
     - _SSRefractionProjectionModel: 0
     - _Shininess: 1
@@ -274,6 +289,7 @@ Material:
     - _Stiffness: 1
     - _SubsurfaceMask: 1
     - _SupportDBuffer: 1
+    - _SupportDecals: 1
     - _Surface: 0
     - _SurfaceType: 0
     - _TexWorldScale: 1
@@ -289,6 +305,7 @@ Material:
     - _UVDetail: 0
     - _UVEmissive: 0
     - _UVSec: 0
+    - _UseShadowThreshold: 0
     - _WorkflowMode: 1
     - _ZTestDepthEqualForOpaque: 3
     - _ZTestGBuffer: 4
@@ -300,6 +317,7 @@ Material:
     - Vector2_2B74BDDF: {r: 1, g: 1, b: 0, a: 0}
     - Vector2_B83D7D83: {r: 0.5, g: 1, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
