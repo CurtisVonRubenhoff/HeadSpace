@@ -19,6 +19,8 @@ public class PauseMenuController : MonoBehaviour
 
   [SerializeField]
   private GameObject PauseMenu;
+  [SerializeField]
+  private GameManager GM;
   
 
   public void InspectPhone() {}
@@ -27,22 +29,24 @@ public class PauseMenuController : MonoBehaviour
 
   public void InspectWallet() {
     Debug.Log("attempting");
-    switch (bill.billState) {
-      case BillyState.BEG:
-        TextMaster.ShowText(walletMessages[1], myTextBox);
-        break;
-      case BillyState.PREINTRO:
-        TextMaster.ShowText(walletMessages[0], myTextBox);
-        break;
-      case BillyState.RICH:
-        TextMaster.ShowText(walletMessages[2], myTextBox);
-        break;
-
-      default:
-        TextMaster.ShowText(walletMessages[0], myTextBox);
-        break;
+    if (!GM.hasMoney) {
+      TextMaster.ShowText(walletMessages[0], myTextBox);
+    } else {
+      switch (bill.billState) {
+        case BillyState.BEG:
+          TextMaster.ShowText(walletMessages[1], myTextBox);
+          break;
+        case BillyState.PREINTRO:
+          TextMaster.ShowText(walletMessages[0], myTextBox);
+          break;
+        case BillyState.RICH:
+          TextMaster.ShowText(walletMessages[2], myTextBox);
+          break;
+        default:
+          TextMaster.ShowText(walletMessages[0], myTextBox);
+          break;
+      }
     }
-    
   }
 
   public void InspectFlute() {}

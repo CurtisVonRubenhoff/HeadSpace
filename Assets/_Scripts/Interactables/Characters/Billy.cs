@@ -29,7 +29,7 @@ public class Billy : ChattyNpc {
   protected override void Update() {
     base.Update();
 
-    if (billState == BillyState.INTRO && GameManager.instance.hasWallet) {
+    if (billState == BillyState.INTRO && GameManager.instance.hasMoney) {
       billState = BillyState.BEG;
     }
 

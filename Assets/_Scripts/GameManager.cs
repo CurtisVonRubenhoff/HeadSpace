@@ -13,6 +13,7 @@ public class GameManager: MonoBehaviour {
   }
   public bool hasFlute;
   public bool hasWallet = true;
+  public bool hasMoney = false;
   public bool hasPhone;
   public bool hasMap;
   public int currentDay = 1;
