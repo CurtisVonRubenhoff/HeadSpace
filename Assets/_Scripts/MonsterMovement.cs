@@ -81,6 +81,7 @@ public class MonsterMovement : MonoBehaviour {
 
   private void OnTriggerEnter(Collider col) {
     if (col.gameObject.tag == "Player") {
+      GameManager.instance.PlayerApproachesMonster();
       playerNearby = true;
       playerTrans = col.gameObject.transform;
     }

@@ -11,6 +11,8 @@ public class MainMenu : MonoBehaviour {
   [SerializeField]
   private AudioSource StartSound;
   [SerializeField]
+  private AudioSource SelectSound;
+  [SerializeField]
   private AudioSource HumNoise;
   [SerializeField]
   private Image FadeImage;
@@ -29,6 +31,9 @@ public class MainMenu : MonoBehaviour {
   Toggle DisclaimerButton;
   [SerializeField]
   Button QuitButton;
+
+  [SerializeField]
+  GameObject GameClearedNotification;
 	
 	// Update is called once per frame
 	void Update () {
@@ -64,5 +69,20 @@ public class MainMenu : MonoBehaviour {
 
   public void ToggleCW() {
     Warning.SetActive(!Warning.activeSelf);
+  }
+
+  public void ResetGameData() {
+    PlayerPrefs.SetInt("CurrentDay", 1);
+    if (!GameClearedNotification.activeSelf) {
+      SelectSound.Play();
+      GameClearedNotification.SetActive(true);
+      StartCoroutine(waitAndDisableNotification());
+    }
+  }
+
+  public IEnumerator waitAndDisableNotification()
+  {
+    yield return new WaitForSeconds(1f);
+    GameClearedNotification.SetActive(false);
   }
 }

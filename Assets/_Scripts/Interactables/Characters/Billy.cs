@@ -56,12 +56,13 @@ public class Billy : ChattyNpc {
     }
   }
 
-  protected override void StartTalking() {
+  protected override void StopTalking() {
     if (billState == BillyState.RICH) {
       canDo = false;
+      isDone = true;
       TextMaster.ClearText(myTMP);
       TextMaster.IndicatorOff();
-      StopTalking();
+      base.StopTalking();
     } else {
       base.StartTalking();
     }

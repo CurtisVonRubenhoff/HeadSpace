@@ -27,6 +27,10 @@ public class GameManager: MonoBehaviour {
 
   public static GameManager instance;
 
+  public int monstersPlayerEncountered = 0;
+
+  private static List<GameObject> monstersInRange;
+
 
   private void Awake() {
     currentDay = PlayerPrefs.GetInt("CurrentDay", 1);
@@ -77,5 +81,9 @@ public class GameManager: MonoBehaviour {
     if (Input.GetButtonDown("Menu")) {
       currentState = (currentState == GameState.RUNNING) ? GameState.PAUSED : GameState.RUNNING;
     }
+  }
+
+  public void PlayerApproachesMonster() {
+    monstersPlayerEncountered++;
   }
 }

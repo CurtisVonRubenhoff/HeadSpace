@@ -64,6 +64,7 @@ public class TextMaster: MonoBehaviour {
   }
 
   public static void IndicatorOff() {
+    Debug.Log("turning off indicator");
     instance.InteractionIndicator.text = "";
   }
 

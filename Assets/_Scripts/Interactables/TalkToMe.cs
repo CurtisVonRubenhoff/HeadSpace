@@ -65,8 +65,11 @@ public class TalkToMe : InteractableBase {
   }
 
   protected override void OnTriggerExit(Collider col) {
-    StopTalking();
-    base.OnTriggerExit(col);
+    if(col.gameObject.tag == "Player") {
+      StopTalking();
+      base.OnTriggerExit(col);
+      TextMaster.IndicatorOff();
+    }
   }
 
   protected void ContinueSpeaking() {
